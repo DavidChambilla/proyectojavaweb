@@ -14,7 +14,7 @@ import lombok.Builder;
 import lombok.Data; 
 import lombok.NoArgsConstructor;
 
-//@Builder te permite generar la construccion de la clase
+//@Builder te permite generar  la construccion de la clase
 @Builder
 //@AllArgsConstructor te permite generar el metodo constructo con parametros
 @AllArgsConstructor
