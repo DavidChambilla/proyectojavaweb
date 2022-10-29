@@ -10,9 +10,7 @@ import pe.com.clbstore.entity.DetalleVentaEntity;
 import pe.com.clbstore.repository.DetalleVentaRepository;
 
 
-
-
-
+@Service
 public class DetalleVentaServiceImpl implements DetalleVentaService{
      @Autowired
     private DetalleVentaRepository detalleventarepositorio;
