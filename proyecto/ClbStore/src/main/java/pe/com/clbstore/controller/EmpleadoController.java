@@ -44,7 +44,7 @@ public class EmpleadoController {
     public EmpleadoEntity delete(@PathVariable Long id, @RequestBody EmpleadoEntity c) {
         EmpleadoEntity objempleado = new EmpleadoEntity();
         objempleado.setEstado(false);
-        
+        return empleadoservice.delete(EmpleadoEntity.builder().id(id).build());
     } 
 
 }
