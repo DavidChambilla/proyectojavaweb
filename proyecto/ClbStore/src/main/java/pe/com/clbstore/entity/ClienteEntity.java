@@ -35,6 +35,10 @@ public class ClienteEntity implements Serializable{
     @Column(name="idcliet")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name="usuario")
+    private String usuario;
+    @Column(name="clave")
+    private String clave;
     @ManyToOne
     @JoinColumn(name="iddistri",nullable = false)
     private DistritoEntity iddistrito;
@@ -42,8 +46,8 @@ public class ClienteEntity implements Serializable{
     private String nombre;
     @Column(name="apellido")
     private String apellido;
-    @Column(name="districli")
-    private String distrito;
+    @Column(name="direccion")
+    private String direccion;
     @Column (name="sexo")
     private String sexo;
     @Column (name="celular")

@@ -24,7 +24,7 @@ values('SmartWatch',1);
 insert into categoria(nomCat,estCat) 
 values('Audífonos',1);
 insert into categoria(nomCat,estCat) 
-values('Hogar&Jugueteria',1);
+values('Jugueteria',1);
 
 -- mostrando los datos insertado a la tabla
 select * from categoria;
@@ -99,7 +99,7 @@ foreign key (idCat) references categoria(idCat)
 
 -- insertando datos a la tabla
 insert into producto(nompro,idCat,Descri,Stock,Prec,est) 
-values('SmartWatch FD68S',1,'Reloj inteligente',10, 37.9, 1);
+values('SmartWatch FD68S',1,'Relo inteligenteeee',10, 37.9, 1);
 insert into producto(nompro,idCat,Descri,Stock,Prec,est) 
 values('AirPods Y40',2,'Audífonos Wireless',30,33.9,1);
 insert into producto(nompro,idCat,Descri,Stock,Prec,est) 
@@ -169,26 +169,31 @@ select * from empleado;
 -- creamos la tabla venta
 create table venta(
 idvent int primary key auto_increment,
+idpro int not null,
+idcat int not null,
+nompro varchar(40) binary character set utf8 collate utf8_bin not null, 
 idcliet int not null,
-FechaVent date,
+cantidad int not null,
+fechavent date,
 idemple int not null,
-CostoVentatotal double not null,
+costoventatotal double not null,
+prec double not null,
 estvent bit not null,
 foreign key (idcliet) references cliente(idcliet),
 foreign key (idemple) references empleado(idemple)
 )engine=InnoDB character set=utf8;
 
 -- insertando datos a la tabla
-insert into venta(idcliet,FechaVent,idemple,CostoVentatotal,estvent)
-values(1,'2022-06-07',1,37.9,1); 
-insert into venta(idcliet,FechaVent,idemple,CostoVentatotal,estvent)
-values(2,'2022-07-06',2,67.8,1); 
-insert into venta(idcliet,FechaVent,idemple,CostoVentatotal,estvent)
-values(3,'2022-09-14',3,87.97,1); 
-insert into venta(idcliet,FechaVent,idemple,CostoVentatotal,estvent)
-values(4,'2022-02-10',4,135.96,1); 
-insert into venta(idcliet,FechaVent,idemple,CostoVentatotal,estvent)
-values(5,'2022-05-29',5,384.95,1);
+insert into venta(idpro,idcat,nompro,idcliet,cantidad,fechavent,idemple,costoventatotal,prec,estvent)
+values(2,2,'AirPods Y40',1,2,'2022-06-07',1,67.8,33.9,1); 
+insert into venta(idpro,idcat,nompro,idcliet,cantidad,fechavent,idemple,costoventatotal,prec,estvent)
+values(1,1,'SmartWatch FD68S',2,1,'2022-07-06',2,37.9,37.9,1); 
+insert into venta(idpro,idcat,nompro,idcliet,cantidad,fechavent,idemple,costoventatotal,prec,estvent)
+values(3,3,'CigarreroNeon',3,1,'2022-09-14',3,27.99,27.99,1); 
+insert into venta(idpro,idcat,nompro,idcliet,cantidad,fechavent,idemple,costoventatotal,prec,estvent)
+values(5,1,'SmartWatch I7 Pro Max',4,1,'2022-02-10',4,76.99,76.99,1); 
+insert into venta(idpro,idcat,nompro,idcliet,cantidad,fechavent,idemple,costoventatotal,prec,estvent)
+values(4,3,'Lampara Lunar',5,2,'2022-05-29',5,67.98,33.99,1);
 
 -- mostramos los datos de la tabla
 select * from venta;
@@ -209,15 +214,15 @@ foreign key (idPro) references producto(idPro)
 
 -- insertando datos a la tabla
 insert into detalle_venta(idvent,idPro,Cantidad,Prec,estvent)
-values(1,1,1,37.9,1); 
+values(1,2,2,33.9,1); 
 insert into detalle_venta(idvent,idPro,Cantidad,Prec,estvent)
-values(2,2,2,33.9,1); 
+values(2,1,1,37.9,1); 
 insert into detalle_venta(idvent,idPro,Cantidad,Prec,estvent)
-values(3,3,3,27.99,1); 
+values(3,3,1,27.99,1); 
 insert into detalle_venta(idvent,idPro,Cantidad,Prec,estvent)
-values(4,3,4,33.99,1); 
+values(4,5,1,76.99,1); 
 insert into detalle_venta(idvent,idPro,Cantidad,Prec,estvent)
-values(5,1,5,76.99,1);
+values(5,4,2,33.99,1);
 
 -- mostramos los datos de la tabla
 select * from detalle_venta;
