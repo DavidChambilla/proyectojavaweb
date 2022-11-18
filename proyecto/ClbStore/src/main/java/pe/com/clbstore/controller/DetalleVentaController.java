@@ -41,7 +41,7 @@ public class DetalleVentaController {
         return detalleventaservice.update(c);
        }
     @DeleteMapping("/{id}")
-    public DetalleVentaEntity delete(@PathVariable Long id, @RequestBody DetalleVentaEntity c) {
+    public DetalleVentaEntity delete(@PathVariable Long id) {
         DetalleVentaEntity objventa = new DetalleVentaEntity();
         objventa.setEstado(false);
         return detalleventaservice.delete(DetalleVentaEntity.builder().id(id).build());

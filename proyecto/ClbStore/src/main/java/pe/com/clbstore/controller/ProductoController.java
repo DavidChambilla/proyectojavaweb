@@ -41,7 +41,7 @@ public class ProductoController {
         return productoservice.update(c);
        }
     @DeleteMapping("/{id}")
-    public ProductoEntity delete(@PathVariable Long id, @RequestBody ProductoEntity c) {
+    public ProductoEntity delete(@PathVariable Long id) {
         ProductoEntity objproducto = new ProductoEntity();
         objproducto.setEstado(false);
         return productoservice.delete(ProductoEntity.builder().id(id).build());

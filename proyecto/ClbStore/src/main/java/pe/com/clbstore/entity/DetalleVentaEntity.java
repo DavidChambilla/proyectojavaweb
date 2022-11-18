@@ -39,8 +39,8 @@ public class DetalleVentaEntity implements Serializable{
     @JoinColumn(name="idvent",nullable = false)
     private VentaEntity idvent;
     @ManyToOne
-    @JoinColumn(name="idPro",nullable = false)
-    private ProductoEntity idPro;
+    @JoinColumn(name="idpro",nullable = false)
+    private ProductoEntity idpro;
     @Column(name="Cantidad")
     private long Cantidad;
     @Column (name="Prec")

@@ -41,7 +41,7 @@ public class VentaController {
         return ventaservice.update(c);
        }
     @DeleteMapping("/{id}")
-    public VentaEntity delete(@PathVariable Long id, @RequestBody VentaEntity c) {
+    public VentaEntity delete(@PathVariable Long id) {
         VentaEntity objventa = new VentaEntity();
         objventa.setEstado(false);
         return ventaservice.delete(VentaEntity.builder().id(id).build());
